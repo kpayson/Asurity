@@ -1,0 +1,45 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.align-left {
+  text-align: left;
+}
+.rate-spread-filter {
+  display:flex;
+}
+
+.rate-spread-filter label {
+  font-weight:bold;
+  padding-left:8px;
+  padding-right:8px;
+}
+
+.rate-spread-filter input {
+  width:40px;
+}
+.rate-spread-filter button {
+  margin-left:10px;
+}
+
+.loan-detail .row {
+  display:flex;
+  padding-top:4px;
+  padding-bottom:4px;
+}
+.loan-detail .row label {
+  display:block; width:200px;
+  font-weight: bold;
+  text-align: right;
+  padding-right:20px;
+}

@@ -1,0 +1,5 @@
+Add Redux to maintain filters and paging state when going to detail page and back.
+Move formatting to server.
+Styling page
+Add Tests
+export and change css less files
