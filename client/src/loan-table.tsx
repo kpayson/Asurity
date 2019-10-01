@@ -13,14 +13,15 @@ type PathParamsType = {
 
 // Your component own properties
 type LoanTableProps = RouteComponentProps<PathParamsType> & {
+    defaultPageSize: number;
+    pageNumber:number;
     minRateSpread?: number;
     maxRateSpread?: number;
+    onPagingChange:(pageSize:number,pageNumber:number) => void;
 };
 
 type LoanTableState = {
     loans: any[];
-    minRateSpread?: number;
-    maxRateSpread?: number;
 }
 
 export class _LoanTable extends Component<LoanTableProps, LoanTableState>  {
@@ -55,6 +56,13 @@ export class _LoanTable extends Component<LoanTableProps, LoanTableState>  {
         this.props.history.push(`/loan/${loanId}`)
     }
 
+    onPageSizeChange = (x:any) => {
+        this.props.onPagingChange(x,this.props.pageNumber);
+    }
+
+    onPageChange = (x:any) => {
+        this.props.onPagingChange(this.props.defaultPageSize,x);
+    }
 
     render() {
 
@@ -64,7 +72,7 @@ export class _LoanTable extends Component<LoanTableProps, LoanTableState>  {
             {
                 Header: '',
                 accessor: 'loanId',
-                Cell: (p: any) => <button data-id={p.value} onClick={() => this.viewMoreClick(p.value)} value={"View More"}>View More</button>
+                Cell: (p: any) => <button className={'button'} onClick={() => this.viewMoreClick(p.value)} value={"View More"}>View More</button>
             },
             {
                 Header: 'Loan Term',
@@ -96,7 +104,7 @@ export class _LoanTable extends Component<LoanTableProps, LoanTableState>  {
             }
         ]
 
-        const { minRateSpread, maxRateSpread } = this.props;
+        const { minRateSpread, maxRateSpread, defaultPageSize,pageNumber } = this.props;
         const loans = this.state.loans;
         const filteredLoans = loans.filter(x => (!minRateSpread || x.rateSpread >= minRateSpread) && (!maxRateSpread || x.rateSpread <= maxRateSpread))
         return <div>
@@ -111,27 +119,14 @@ export class _LoanTable extends Component<LoanTableProps, LoanTableState>  {
                     } : {};
                 }}
 
-                // getTdProps={(state: any, rowInfo: any, column: any, instance: any) => {
-                //     return {
-                //         onClick: (e: any, handleOriginal: any) => {
-                //             // console.log('A Td Element was clicked!')
-                //             // console.log('it produced this event:', e)
-                //             // console.log('It was in this column:', column)
-                //             // console.log('It was in this row:', rowInfo)
-                //             // console.log('It was in this table instance:', instance)
-
-                //             this.props.history.push(`/loan/${rowInfo.original.loanId}`)
-
-                //             if (handleOriginal) {
-                //                 handleOriginal()
-                //             }
-                //         }
-                //     }
-                // }}
-
                 data={filteredLoans}
                 columns={columns}
                 className="-striped -highlight"
+                //defaultPageSize={defaultPageSize}
+                pageSize={defaultPageSize}
+                page={pageNumber}
+                onPageChange={this.onPageChange}
+                onPageSizeChange={this.onPageSizeChange}
 
 
             />

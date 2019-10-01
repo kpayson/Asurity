@@ -1,9 +1,10 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import {LoanList} from './loan-list'
+import {LoanListContainer} from './loan-list-container'
 import {LoanDetail} from './loan-detail';
+
+import { connect } from 'react-redux';
 
 const App: React.FC = () => {
   return (
@@ -15,7 +16,7 @@ const App: React.FC = () => {
       </header>
 
 
-      <Route exact path="/" component={LoanList} />
+      <Route exact path="/" component={LoanListContainer} />
       <Route exact path="/loan/:id" component={LoanDetail} />
 
     </div>
@@ -25,4 +26,4 @@ const App: React.FC = () => {
   );
 }
 
-export default App;
+export default connect()(App);

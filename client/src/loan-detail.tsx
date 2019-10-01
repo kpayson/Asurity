@@ -66,6 +66,9 @@ export class LoanDetail extends Component<any, LoanDetailState>  {
         return formattedLoan;
     };
 
+    backClick = () => {
+        this.props.history.push(`/`);
+    }
 
     render() {
         const { match } = this.props;
@@ -74,7 +77,7 @@ export class LoanDetail extends Component<any, LoanDetailState>  {
             <div className="loan-detail">
                 <h2>Loan Detail</h2>
 
-                <Link to="/">Loans</Link>
+                {/* <Link to="/">Loans</Link> */}
 
                 <div className="row">
                     <label>Loan Id:</label>
@@ -137,7 +140,9 @@ export class LoanDetail extends Component<any, LoanDetailState>  {
                     <div>{l.rateSpread}</div>
                 </div>
 
-
+                <div className="row">
+                    <label><button value="Back" onClick={this.backClick}>Back</button></label>
+                </div>
             </div>
         )
     }

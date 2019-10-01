@@ -2,34 +2,58 @@ import React from 'react';
 import {LoanTable} from './loan-table';
 import {RateSpreadFilter} from './rate-spread-filter';
 
-interface LoanListState {
+// interface LoanListState {
+//     minRateSpread?:number;
+//     maxRateSpread?:number;
+// }
+
+interface LoanListProps{
     minRateSpread?:number;
     maxRateSpread?:number;
+    pageSize:number;
+    pageNumber:number;
+    setRateSpread:(min?:number,max?:number) => void;
+    setPaging:(pageSize:number,pageNUmber:number) => void;
 }
 
-export class LoanList extends React.Component<any,LoanListState> {
+export class LoanList extends React.Component<LoanListProps> {
 
     constructor(props:any) {
         super(props);
         
-        this.state = {
-            minRateSpread:undefined,
-            maxRateSpread:undefined
-        };
+        // this.state = {
+        //     minRateSpread:undefined,
+        //     maxRateSpread:undefined
+        // };
     }
 
     onRateSpreadFilter = (min?:number,max?:number) => {
-        this.setState({
-            minRateSpread:min,
-            maxRateSpread:max
-        });
+        // this.setState({
+        //     minRateSpread:min,
+        //     maxRateSpread:max
+        // });
+        this.props.setRateSpread(min,max);
+    }
+
+    onPagingChange = (pageSize:number,pageNumber:number) => {
+        this.props.setPaging(pageSize,pageNumber);
     }
 
     render() {
+        const {minRateSpread,maxRateSpread,pageSize,pageNumber,setPaging} = this.props;
+
         return (
             <div>
-                <RateSpreadFilter onFilter={this.onRateSpreadFilter}></RateSpreadFilter>
-                <LoanTable minRateSpread={this.state.minRateSpread} maxRateSpread={this.state.maxRateSpread}></LoanTable>
+                <RateSpreadFilter onFilter={this.onRateSpreadFilter} min={this.props.minRateSpread} max={this.props.maxRateSpread}></RateSpreadFilter>
+                <LoanTable
+                    minRateSpread={minRateSpread} 
+                    maxRateSpread={maxRateSpread}
+                    defaultPageSize={pageSize}
+                    pageNumber={pageNumber}
+                    onPagingChange={setPaging}
+                    >
+                    
+                </LoanTable>
             </div>
         )
     }
