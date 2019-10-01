@@ -44,7 +44,6 @@ export class _LoanTable extends Component<LoanTableProps, LoanTableState>  {
     }
 
     callApi = async () => {
-        const { match } = this.props;
         const response = await fetch(`/api/loans/`);
         const body = await response.json();
         if (response.status !== 200) throw Error(body.message);

@@ -2,11 +2,6 @@ import React from 'react';
 import {LoanTable} from './loan-table';
 import {RateSpreadFilter} from './rate-spread-filter';
 
-// interface LoanListState {
-//     minRateSpread?:number;
-//     maxRateSpread?:number;
-// }
-
 interface LoanListProps{
     minRateSpread?:number;
     maxRateSpread?:number;
@@ -17,15 +12,6 @@ interface LoanListProps{
 }
 
 export class LoanList extends React.Component<LoanListProps> {
-
-    constructor(props:any) {
-        super(props);
-        
-        // this.state = {
-        //     minRateSpread:undefined,
-        //     maxRateSpread:undefined
-        // };
-    }
 
     onRateSpreadFilter = (min?:number,max?:number) => {
         // this.setState({

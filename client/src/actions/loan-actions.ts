@@ -28,15 +28,6 @@ export const setRateSpread = (minRate?:number,maxRate?:number) => {
             maxRateSpread:maxRate
         }
     };
-    // return (dispatch:any) => {
-    //     dispatch({
-    //         type:loanActionTypes.LOAN_ACTION_SET_RATE_SPREAD,
-    //         payload: {
-    //             minRateSpread:minRate,
-    //             maxRateSpread:maxRate
-    //         }
-    //     })
-    // }
 }
 
 export const setPaging = (pageSize:number,pageNumber:number) => {
@@ -47,13 +38,4 @@ export const setPaging = (pageSize:number,pageNumber:number) => {
             pageNumber:pageNumber
         }
     }
-    // return (dispatch:any) => {
-    //     dispatch({
-    //         type:loanActionTypes.LOAN_ACTION_SET_RATE_SPREAD,
-    //         payload: {
-    //             pageSize:pageSize,
-    //             pageNumber:pageNumber
-    //         }
-    //     })
-    // }
 }

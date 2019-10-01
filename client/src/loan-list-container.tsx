@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from 'react-redux';
-import { bindActionCreators } from "redux";
 import {setRateSpread, setPaging} from "./actions/loan-actions";
 import {LoanList} from "./loan-list";
 
