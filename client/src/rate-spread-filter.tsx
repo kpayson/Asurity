@@ -16,7 +16,7 @@ interface RateSpreadFilterState {
 export class RateSpreadFilter extends React.Component<RateSpreadFilterProps,RateSpreadFilterState> {
     constructor(props:RateSpreadFilterProps) {
         super(props);
-        
+
         this.state = {
             min:undefined,
             max:undefined
@@ -47,8 +47,8 @@ export class RateSpreadFilter extends React.Component<RateSpreadFilterProps,Rate
         return (
             <div className="rate-spread-filter">
                 <label>Rate Spread</label>
-                <label>Min</label><input type="text" onChange={this.minRateSpreadChange} value={min}></input>
-                <label>Max</label><input type="text" onChange={this.maxRateSpreadChange} value={max}></input>
+                <label>Min</label><input type="number" onChange={this.minRateSpreadChange} value={min}></input>
+                <label>Max</label><input type="number" onChange={this.maxRateSpreadChange} value={max}></input>
                 <button onClick={this.rateSpreadFilter}>Filter</button>
             </div>
         )
