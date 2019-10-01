@@ -3,18 +3,18 @@
 # Getting Started
 
 ## build the server:
-    from root application directory type:  
-        **yarn**
+## from root application directory type:  
+*yarn;*
 
 ## build client
-    *cd client*
-    *yarn; yarn build;*
+*cd client;*
+*yarn; yarn build;*
 
 ## Go back to root directory
-    *cd ..*
+*cd ..*
 
 ## Run Application
-    *yarn dev*
+*yarn dev*
 
 ## Application should be available at http://localhost:3000
 
@@ -24,8 +24,8 @@
 ## Added express server
 
 ## Express server has REST endpoint for:
-     ###getting all loans   - */api/loans*
-     ###getting specific loans - */api/loan/:id*
+### getting all loans   - */api/loans*
+### getting specific loans - */api/loan/:id*
 
 ## Api running on port 5000
 
